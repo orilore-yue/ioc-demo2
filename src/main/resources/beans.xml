@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="emp1" class="com.orilore.Emp">
+		<constructor-arg name="id" value="1"/>
+		<constructor-arg name="code" value="1001"/>
+		<property name="name" value="张三"/>
+		<property name="wage" value="10000"/>
+		<property name="sex" value="女"/>
+		<property name="phones">
+			<map>
+				<entry>
+					<key>
+						<value>手机1</value>
+					</key>
+					<value>13312345678</value>
+				</entry>
+				<entry>
+					<key>
+						<value>手机2</value>
+					</key>
+					<value>13312345679</value>
+				</entry>
+				<entry>
+					<key>
+						<value>手机3</value>
+					</key>
+					<value>13312345688</value>
+				</entry>
+			</map>
+		</property>
+		<property name="prop">
+			<props>
+				<prop key="a">100</prop>
+				<prop key="b">200</prop>
+				<prop key="c">300</prop>
+				<prop key="d">400</prop>
+			</props>
+		</property>
+	</bean>
+	<bean id="emp2" class="com.orilore.Emp">
+		<constructor-arg name="id" value="2"/>
+		<constructor-arg name="code" value="1002"/>
+		<property name="name" value="李四"/>
+		<property name="wage" value="30000"/>
+		<property name="sex" value="男"/>
+	</bean>
+	
+	<bean id="comp" class="com.orilore.Computer" autowire="no">
+		<property name="size" value="酷睿8核"/>
+		<property name="price" value="20000"/>
+	</bean>
+</beans>
