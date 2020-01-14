@@ -52,4 +52,37 @@
 		<property name="size" value="酷睿8核"/>
 		<property name="price" value="20000"/>
 	</bean>
+	
+	
+	<bean id="course" class="com.orilore.Course">
+		<property name="name" value="Java"/>
+	</bean>
+	
+	<bean id="teacher" class="com.orilore.Teacher">
+		<property name="name" value="孔子"/>
+	</bean>
+	
+	
+	
+	
+	
+	<bean id="advice1" class="com.orilore.MessageAdvice"/>
+	<bean id="advice2" class="com.orilore.MsgAdviceAfter"/>
+	<bean id="advisor" class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
+		<property name="pattern">
+			<value>.*process.*</value>
+		</property>	
+		<property name="advice" ref="advice1"/>	
+	</bean>
+	
+	<bean id="proxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces" value="com.orilore.ICourse"/>
+		<property name="interceptorNames">
+			<list>
+				<value>advisor</value>
+			</list>
+		</property>
+		<property name="target" ref="course"/>
+	</bean>
+		
 </beans>
